@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {Sim} from '../sim/engine.js';
+import {scenarios} from '../sim/scenarios.js';
+const run=(s,t)=>{for(let i=0;i<t*20;i++)s.step();return s;};
+const low=run(new Sim(scenarios[0],{rate:30}),30);
+const high=run(new Sim(scenarios[0],{rate:150}),30);
+assert.equal(low.metrics.dropped,0);assert(high.metrics.dropped>0);assert(high.stats.p95>low.stats.p95);assert(high.stats.queue<=80);
+high.configure('rate',10);run(high,20);assert(high.stats.queue<5);
+const a=run(new Sim(scenarios[0]),10),b=run(new Sim(scenarios[0]),10);assert.deepEqual(a.stats,b.stats);
+const rr=new Sim(scenarios[1]);rr.nodes[0].failed=true;run(rr,15);assert(rr.metrics.dropped>0);
+const ll=new Sim(scenarios[1],{policy:'least-load',rate:30});ll.nodes[0].failed=true;run(ll,15);assert.equal(ll.metrics.dropped,0);
+const off=run(new Sim(scenarios[2]),20),on=run(new Sim(scenarios[2],{coalesce:'on'}),20);
+assert(on.state.originFetches<off.state.originFetches);assert.equal(on.stats.queue,0);assert(on.metrics.completed<=on.metrics.arrived);
+on.reset();assert.equal(on.time,0);assert.equal(on.metrics.completed,0);
+console.log('PASS: overload, recovery, determinism, bounded queues, failed-node routing, coalescing, reset');
