@@ -37,3 +37,11 @@ This is an educational model, not a production capacity calculator. Arrivals are
 ## Checks
 
 With Node 18+ installed, run `npm test` (no dependency installation). Tests cover overload, recovery, routing failure and cache coalescing. The included validation report records the delivery checks.
+
+## Master field guide
+
+The homepage adds a component explorer (28 building blocks), 18 worked interview blueprints, an 8-stage roadmap, a capacity calculator, saved study marks and per-design notes. `labs.html` retains the three original simulation lessons.
+
+`assets/master-data.js` holds component guides, interview designs, roadmap checkpoints and primary references. `assets/master.js` supplies search, filtering, architecture highlights, study progress, notes and calculator behavior. `assets/master.css` styles the guide. No external libraries, fonts, network API or build step is required. The architecture map is a grouped reference, not a simulation of each highlighted design. It highlights candidate responsibilities rather than prescribing a single architecture.
+
+Worked designs are study starting points; specialist workloads may need deeper domain study. The calculator estimates logical traffic and storage only; its assumptions are displayed beside the results. Notes are local to this browser and are not synchronized or uploaded.

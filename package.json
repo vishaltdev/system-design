@@ -1,1 +1,8 @@
-{"name":"systems-lab","private":true,"type":"module","scripts":{"test":"node tests/engine.test.js"}}
+{
+  "name": "systems-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/engine.test.js && node tests/guide.test.js"
+  }
+}

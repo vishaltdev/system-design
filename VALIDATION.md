@@ -10,3 +10,13 @@
 - ZIP integrity checked after packaging. No deployment, GitHub repository creation or publication performed.
 
 Simulation simplifications and local startup instructions are in README.md. Browser coverage is representative, not exhaustive across every browser or assistive technology.
+
+## Master guide expansion — 8 November 2026
+
+- Added and checked 28 component guides, 18 worked designs and eight roadmap stages. Every worked design includes requirements, API, data, flow, scale, failure and trade-off reasoning. All component and roadmap references resolve.
+- Browser-tested architecture highlights, component details, studied marks, text search, group filtering and empty results.
+- Browser-tested practice selection, distributed cache blueprint, notes, self-review checkbox and roadmap study checks. Notes, selected practice design and progress survived reload.
+- Capacity calculator: 86,400 users × 100 daily requests yielded 100 average QPS, 500 peak QPS at multiplier 5 and 10 average writes/s at 10%. Rejected a write share of 101%.
+- Original simulation regression suite passed. Browser navigation from the new homepage to the labs and saturation lesson worked.
+- Inspected dark desktop and mobile guide layouts and light-theme architecture; 390px viewport had 390px document width. No external runtime dependencies.
+- Primary references are linked in the guide. Worked designs are educational starting points rather than production specifications.
